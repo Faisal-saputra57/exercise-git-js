@@ -1,0 +1,157 @@
+.app-container {
+  padding: 20px;
+  font-family: sans-serif;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* ANIMATED BACKGROUND GRADIENT (DARK MODE) */
+.app-container.dark {
+  background: linear-gradient(-45deg, #1e1e2f, #2b2b45, #1e1e2f, #3a3a5a);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: white;
+}
+
+/* GRADIENT BACKGROUND (LIGHT MODE) */
+.app-container.light {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  color: #222;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+/* GRADIENT ANIMATION KEYFRAMES */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.pokemon-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.pokemon-card {
+  background: #2a2a40;
+  padding: 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background-color: #3c3c5e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pokemon-card.active {
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px #00ffcce6;
+  transform: scale(1.07);
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.pokemon-image {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.pokemon-detail {
+  background: #2a2a40;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.toggle-mode {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-mode:hover {
+  background-color: #666;
+}
+
+.app-container.light .pokemon-card {
+  background: white;
+  color: #222;
+}
+
+.app-container.light .pokemon-card:hover {
+  background: #f0f0f0;
+}
+
+.search-bar,
+.sort-dropdown {
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+  .pokemon-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pokemon-card {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .search-bar,
+  .sort-dropdown {
+    width: 100%;
+  }
+
+  .pokemon-detail {
+    width: 90%;
+    margin-top: 2rem;
+  }
+}
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+.pokemon-list {
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
